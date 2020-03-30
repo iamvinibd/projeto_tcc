@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Página Inicial - Login</title>
     <link rel="stylesheet" href="_css/slide_style.css">
+    <link rel="stylesheet" href="_css/style.css">
   </head>
   <body>
     <div class="c_Slides">
@@ -41,5 +42,6 @@
       	</div>
 
     </div>
+    <script type="text/javascript" language="javascript" src="_java/AutomaticSlides.js"></script>
   </body>
 </html>
