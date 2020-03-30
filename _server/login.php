@@ -1,10 +1,33 @@
 <?php
-session_start();
-if (isset($_POST["UserCPF"])) {
-  echo $_SESSION['counter'];
+//Caso não sido digitado nenhum CPF//Senha pede para o usuario digitar
+
+if (empty($_POST["UserCPF"])) {
+  echo "<script>alert('Favor insira seu CPF');history.back();</script>";
 }
-else {
-  echo "It's unset";
+elseif (empty($_POST["UserSenha"])) {
+  echo "<script>alert('Favor insira sua senha');history.back();</script>";
 }
 
- ?>
+//Com os valores digitados, abaixo iremos ver se os mesmos são encontrados no banco de dados de usuários
+require("users-db-conect.php");
+# Busca CPF no banco de dados
+$CheckDB = mysqli_query($conectUserDB,"SELECT * FROM `usersinfos` WHERE `CPF` LIKE '$_POST[UserCPF]'" );
+$Userdata = mysqli_fetch_array($CheckDB);
+$RowMatched = mysqli_num_rows($CheckDB);
+
+# Usuario encontrado busca para checar a senha
+if($RowMatched == 1){
+  if($Userdata["senha"] == $_POST["UserSenha"]){
+    #Se a senha for confirmada inicio uma sessão para compartilhar os dados abaixo com outras páginas
+    session_start();
+    $_SESSION["UserCPF"] = $Userdata["CPF"];
+    $_SESSION["UserName"] = $Userdata["nome"];
+    $_SESSION["UserEmail"] = $Userdata["email"];
+    echo "<script>alert('Bem Vindo $Userdata[nome]');location = '../user.php';</script>";
+  }
+  else {
+    echo "<script>alert('Senha Inválida');history.back();</script>";
+  }
+}
+
+?>

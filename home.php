@@ -23,7 +23,7 @@
     </div>
 
       <div class="c_Login">
-      		<form method="post" action="UserLogin.php" id="LoginForm">
+      		<form method="post" action="_server/login.php" id="LoginForm">
       			<table id="LoginTable">
       				<tr>
       					<td>CPF</td>
