@@ -3,7 +3,6 @@ body{
 	padding: 0;
 	outline: none;
 	font-family: "Arial";
-	/*background-color: lightblue;*/
 }
 .c_Login,.c_Cadastro{
 	height: 300px;
