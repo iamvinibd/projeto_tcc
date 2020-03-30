@@ -20,8 +20,10 @@
   		<div class="SlideShow Fade">
   			<img src="_img/_slides/004.jpg" class="SlideImage">
   		</div>
+    </div>
+
       <div class="c_Login">
-      		<form method="get" action="UserLogin.php" id="LoginForm">
+      		<form method="post" action="UserLogin.php" id="LoginForm">
       			<table id="LoginTable">
       				<tr>
       					<td>CPF</td>
@@ -41,7 +43,7 @@
       		</form>
       	</div>
 
-    </div>
+
     <script type="text/javascript" language="javascript" src="_java/AutomaticSlides.js"></script>
   </body>
 </html>
