@@ -35,3 +35,61 @@ body{
 	background-color: #ddd;
 
 }
+.cabecalho{
+	color: white;
+	text-align: center;
+	padding: 15px;
+	margin: 0 auto;
+	background-color: red;
+
+}
+
+.c_Notas{
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 30%;
+	height: 500px;
+	border: 1px solid blue;
+	border-radius: 8px;
+	float: left;
+	overflow-y: auto;
+	background-color: white;
+}
+#t_Notas{
+	text-align: center;
+}
+#t_Produtos{
+	text-align: center;
+}
+.c_ListaProdutos{
+	margin-top: 5px;
+	margin-right: 5px;
+	float: right;
+	width: 68%;
+	height: 500px;
+	border: 1px solid blue;
+	border-radius: 8px;
+	overflow-y: auto;
+	background-color: white;
+}
+.btn_Compras{
+	padding: 50px;
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+	background-color: blue;
+	color: white;
+}
+.c_BotaoCompras{
+	position: relative;
+	bottom: -20px;
+
+}
+.btn_Compras:hover{
+	background-color: darkblue;
+	cursor: pointer;
+}
+
+.page_user{
+	background-color: lightblue;
+}
