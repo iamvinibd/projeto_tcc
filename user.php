@@ -49,6 +49,7 @@ session_start();
                 $valor = $dados["promo"]*$dados["valor"];
               }
               else {
+
                 $valor = $dados["valor"];
               }?>
       				<tr>
