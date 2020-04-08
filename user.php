@@ -8,15 +8,20 @@ session_start();
     <title>Página do Usuário</title>
     <link rel="stylesheet" href="_css/style.css">
   </head>
+  <!-- crio o box do cabeçalho-->
   <body class="page_user">
     <div class="cabecalho">
+      <!-- Com as informações compartilhadas pela sessão vindas do script login.ph, preencho o cabecalho
+      com informações do usuário-->
       <h1>Bem Vindo!!!</h1>
       <h2><?=$_SESSION["UserName"]?></h2>
       <h2><?=$_SESSION["UserCPF"]?></h2>
       <h2><?=$_SESSION["UserEmail"]?></h2>
     </div>
+    <!--Crio box para as notas fiscais-->
     <div class="c_Notas">
       <h2 id="t_Notas">Notas Fiscais</h2>
+      <!-- Cria se uma lista, dentro dessa lista teremos todos os arquivos dentro da pastas_notas/CPF do usuário-->
       <ul id = "list_Notas">
       <?php
         $path = "./_notas/$_SESSION[UserCPF]/";
@@ -30,7 +35,7 @@ session_start();
       <?php  }?>
       </ul>
 
-
+<!-- Crio box da lista de produtos disponíveis-->
     </div>
     <div class="c_ListaProdutos">
       <h2 id="t_Produtos">Produtos</h2>

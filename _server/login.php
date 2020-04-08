@@ -1,5 +1,5 @@
 <?php
-//Caso não sido digitado nenhum CPF//Senha pede para o usuario digitar
+//Caso não tenha sido digitado nenhum CPF//Senha pede para o usuario digitar
 
 if (empty($_POST["UserCPF"])) {
   echo "<script>alert('Favor insira seu CPF');history.back();</script>";
@@ -15,10 +15,10 @@ $CheckDB = mysqli_query($conectUserDB,"SELECT * FROM `usersinfos` WHERE `CPF` LI
 $Userdata = mysqli_fetch_array($CheckDB);
 $RowMatched = mysqli_num_rows($CheckDB);
 
-# Usuario encontrado busca para checar a senha
+#Se Usuario encontrado checa-se a senha
 if($RowMatched == 1){
   if($Userdata["senha"] == $_POST["UserSenha"]){
-    #Se a senha for confirmada inicio uma sessão para compartilhar os dados abaixo com outras páginas
+    #Se a senha for confirmada, inicio uma sessão para compartilhar os dados abaixo com outras páginas
     session_start();
     $_SESSION["UserCPF"] = $Userdata["CPF"];
     $_SESSION["UserName"] = $Userdata["nome"];
