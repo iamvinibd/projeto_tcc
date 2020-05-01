@@ -1,0 +1,12 @@
+.c_Busca{
+	margin-top: 20px;
+}
+.display_produto{
+  width: 100%;
+
+}
+#DisplayProdutoTable,#DisplayInfoTable{
+
+  position: relative;
+  left: 30%;
+}
