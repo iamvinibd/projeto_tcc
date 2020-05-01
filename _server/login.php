@@ -30,5 +30,8 @@ if($RowMatched == 1){
     echo "<script>alert('Senha Inválida');history.back();</script>";
   }
 }
+else{
+    echo "<script>alert('Usuário não encontrado');history.back();</script>";
+}
 
 ?>
