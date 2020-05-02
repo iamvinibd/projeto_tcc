@@ -44,29 +44,40 @@
           </tr>
         </table>
       </form>
-
-      <div class="display_produto">
-           <table id = "DisplayProdutoTable">
-             <tr height = 200px>
-               <td><?=$Produto?></td>
-             </tr>
-          </table>
-          <table id = "DisplayInfoTable">
-             <tr>
-               <td >Nome:</td>
-               <td><?=$Nome?></td>
-             </tr>
-             <tr>
-               <td>Valor:</td>
-               <td><?=$valor?></td>
-             </tr>
-
-           </table>
-
-      </div>
-
-
-
     </div>
+    <div class="display_produto">
+      <strong><?=$Produto?></strong>
+    </div>
+    <div class="display_info">
+      <form class="form_info" action="_server/acao.php" method="get">
+        <table border="1" id="table_info">
+          <tr>
+            <td>Produto: </td>
+            <td><input type="text" value=<?=$Nome?> name="produto" class="info" readonly></td>
+            <td>Ação</td>
+          </tr>
+          <tr>
+            <td>R$: </td>
+            <td><input type="text" value=<?=$valor?> name="valor" class="info" readonly></td>
+            <td>
+              <button type="submit" name="add" class="btn_acao" float="left"><i class="fa fa-shopping-cart"></i></button>
+              <button type="submit" name="rmv" class="btn_acao"><i class="fa fa-remove"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Código</td>
+            <td colspan="2"><input type="text" value=<?=$codigo?> name="codigo" class="info" readonly></td>
+          </tr>
+        </table>
+    </form>
+    </div>
+
+    <div class="display_compras">
+      <strong>suas compras</strong>
+    </div>
+
+
+
+
   </body>
 </html>
