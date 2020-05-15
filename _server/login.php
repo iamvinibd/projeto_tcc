@@ -9,6 +9,7 @@ elseif (empty($_POST["UserSenha"])) {
 }
 
 //Com os valores digitados, abaixo iremos ver se os mesmos são encontrados no banco de dados de usuários
+else{
 require("users-db-conect.php");
 # Busca CPF no banco de dados
 $CheckDB = mysqli_query($conectUserDB,"SELECT * FROM `usersinfos` WHERE `CPF` LIKE '$_POST[UserCPF]'" );
@@ -33,5 +34,5 @@ if($RowMatched == 1){
 else{
     echo "<script>alert('Usuário não encontrado');history.back();</script>";
 }
-
+}
 ?>

@@ -67,7 +67,7 @@ session_start();
       	</table>
     </div>
     <div class="c_BotaoCompras">
-      <input type="button" name="Start_Compras" value=" Iniciar Compras" class="btn_Compras">
+      <a href="pag_compras.php"><input type="button" name="Start_Compras" value=" Iniciar Compras" class="btn_Compras"></a>
 
     </div>
 
