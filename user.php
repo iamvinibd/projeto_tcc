@@ -70,8 +70,6 @@ session_start();
       <input type="button" name="Start_Compras" value=" Iniciar Compras" class="btn_Compras">
 
     </div>
-    <!--Essa div era para organizar a lista
-    <script type="text/javascript" language="javascript" src="_java/SortList.js"></script>
-  -->
+
   </body>
 </html>
