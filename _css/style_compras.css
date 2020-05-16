@@ -6,43 +6,64 @@ width: 30%;
 height: 400px;
 text-align: center;
 border: 1px solid black;
-float: left;
-margin: 30px;
+margin-top: 10px;
 }
-
 .display_info{
-	float: left;
-
-	width: 40%;
-	margin-top: 30px;
-	margin-left: 30px;
+	margin-top: 10px;
+	width: 30%;
 }
-
 #table_info{
-	width: 300px;
+	width: 100%;
 	text-align: center;
 	border: 1px solid black;
 }
+.action_button{
+	width: 30%;
+	height: 100%;
+}
+#action_table{
+	width: 100%;
+	text-align: center;
+}
 .btn_acao{
 	background-color:white;
+	width: 49%;
 	border: 1px solid black;
+	margin-top: 1px;
 }
 
-.btn_acao:hover{
+button[name="add"] {
+	background-color: green;
+	font-size: 50px;
+	color: white;
+	font-size: bold;
+}
+button[name="add"]:hover{
+	background-color: lightgreen;
 	cursor: pointer;
 }
 
-.display_compras{
-	float: left;
-	border: 1px solid black;
-	margin-top: 30px;
-	margin-left: -150px;
-	width: 30%;
-	height: 400px;
+button[name="rmv"] {
+	background-color: red;
+	font-size: 50px;
+	font-size: bold;
 }
-
+button[name="rmv"]:hover{
+	background-color: pink;
+	cursor: pointer;
+}
+.display_compras{
+	position: fixed;
+	text-align: center;
+	top: 0;
+	left: 60%;
+	border-left: 1px solid black;
+	width: 30%;
+	height: 100%;
+}
 input[class="info"] {
 		text-align: center;
+		font-weight: bold;
     border: none;
     outline:none;
 }
