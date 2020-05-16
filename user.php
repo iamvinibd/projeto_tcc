@@ -6,7 +6,7 @@ session_start();
   <head>
     <meta charset="utf-8">
     <title>Página do Usuário</title>
-    <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/style_user.css">
   </head>
   <!-- crio o box do cabeçalho-->
   <body class="page_user">
@@ -15,8 +15,8 @@ session_start();
       com informações do usuário-->
       <h1>Bem Vindo!!!</h1>
       <h2><?=$_SESSION["UserName"]?></h2>
-      <h2><?=$_SESSION["UserCPF"]?></h2>
-      <h2><?=$_SESSION["UserEmail"]?></h2>
+      <h5><?=$_SESSION["UserCPF"]?></h2>
+      <h5><?=$_SESSION["UserEmail"]?></h2>
     </div>
     <!--Crio box para as notas fiscais-->
     <div class="c_Notas">

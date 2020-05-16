@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Página Inicial - Login</title>
     <link rel="stylesheet" href="_css/slide_style.css">
-    <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/style_home_cadastro.css">
   </head>
   <body>
     <!-- Criação do box dos slides automaticos-->

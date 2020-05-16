@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="_css/style.css">
+    <link rel="stylesheet" href="_css/style_home_cadastro.css">
     <title>Cadastro</title>
   </head>
   <body>
