@@ -53,12 +53,13 @@ button[name="rmv"]:hover{
 	cursor: pointer;
 }
 .display_compras{
-	position: fixed;
+	overflow-y: auto;
+	position: absolute;
 	text-align: center;
 	top: 0;
-	left: 60%;
+	left: 40%;
 	border-left: 1px solid black;
-	width: 30%;
+	width: 55%;
 	height: 100%;
 }
 input[class="info"] {
@@ -66,4 +67,17 @@ input[class="info"] {
 		font-weight: bold;
     border: none;
     outline:none;
+}
+
+input[class="info_compra"] {
+		text-align: center;
+		font-weight: bold;
+		font-size: 15px;
+    border: none;
+    outline:none;
+}
+
+#table_compras{
+	width: 100%;
+	text-align: center;
 }

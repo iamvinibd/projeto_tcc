@@ -73,7 +73,59 @@
       </form>
       </div>
     <div class="display_compras">
-      <strong>suas compras</strong>
+
+      <table id="table_compras">
+        <tr>
+          <td><input type="text" value="Código" name="codigo" class="info_compra" readonly></td>
+          <td><input type="text" value="Produto" name="codigo" class="info_compra" readonly></td>
+          <td><input type="text" value="Quantidade" name="codigo" class="info_compra" readonly></td>
+          <td><input type="text" value="Valor (R$)" name="codigo" class="info_compra" readonly></td>
+        </tr>
+      <?php
+        if (file_exists("_server/compras.json")){
+          //echo "foiiii";
+          $count = substr_count(file_get_contents("_server/compras.json"), "a");
+          //echo $count;
+          if ($count > 0){
+            $data = file_get_contents("_server/compras.json"); // put the contents of the file into a variable
+            $characters = json_decode($data,true);
+            $valor_total = 0;
+            foreach ($characters as $character) {
+              $valor_total = strval($valor_total + intval($character["info"][0]["qtdd"])*intval($character["info"][0]["valor"]));
+              ?>
+              <tr>
+                <td><?=$character["codigo"]?></td>
+                <td><?=$character["info"][0]["produto"]?></td>
+                <td><?=$character["info"][0]["qtdd"]?></td>
+                <td><?=strval(intval($character["info"][0]["qtdd"])*intval($character["info"][0]["valor"]))?>,00</td>
+              </tr>
+            <?php }
+        }
+      }?>
+      <tr>
+        <td colspan="4">___________________________________________________________________________________________</td>
+      </tr>
+        <tr>
+          <td><input type="text" value="Preço Final" name="codigo" class="info_compra" readonly></td>
+          <td colspan="3"><input type="text" value=<?=$valor_total?>,00 name="codigo" class="info_compra" readonly></td>
+        </tr>
+        </table>
+
+
+        <!--
+          /*$count = substr_count(file_get_contents(._server/"compras.json"), "a");
+          //echo $count;
+          if ($count == 0){
+        }
+        $data = file_get_contents($filename); // put the contents of the file into a variable
+        $characters = json_decode($data,true);
+
+        foreach ($characters as $character) {?>
+      	   echo $character["codigo"] . '<br>';
+           echo $character["info"][0]["valor"] . '<br>';
+           echo $character["info"][0]["qtdd"] . '<br>';-->
+
+
     </div>
   </body>
 </html>

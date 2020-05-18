@@ -1,26 +1,107 @@
 <?php
   $codigo = $_GET["codigo"];
+  if($codigo == "..."){
+      echo "<script>history.back();</script>";
+  }
+  else{
   $produto = $_GET["produto"];
   $valor = $_GET["valor"];
   $qtdd = 1;
+  $status_produto = 0;
   $compra = array(
-    "Codigo"=>$codigo,
-    "Produto"=>$produto,
-    "Valor"=>$valor,
+    "codigo"=>$codigo,
+    "info" =>[
+    array(
+    "produto"=>$produto,
+    "valor"=>$valor,
+    "qtdd"=>$qtdd
+  )]
   );
 
-  $arquivo = file_get_contents("compras.json");
-  $compra_string = json_decode($arquivo);
-  //echo $compra_string->Codigo;
+  $filename = "compras.json";
+  if (file_exists($filename)) {
+    $count = substr_count(file_get_contents($filename), "a");
+    //echo $count;
+    if ($count == 0){
+      $handle = @fopen($filename, 'r+');
+      if ($handle)
+      {
+          // seek to the end
+          fseek($handle, 0, SEEK_END);
+          // are we at the end of is the file empty
+          if (ftell($handle) > 0)
+          {
+              // move back a byte
+              fseek($handle, -1, SEEK_END);
+              // add the trailing comma
+              //fwrite($handle, ',', 1);
+              // add the new json string
+              fwrite($handle, json_encode($compra) . ']');
+          }
+          else
+          {
+              // write the first event inside an array
+              fwrite($handle, json_encode($compra));
+          }
+              // close the handle on the file
+              fclose($handle);
+      }
+    }
+    else {
+      $data = file_get_contents($filename); // put the contents of the file into a variable
+      $produtos = json_decode($data,true);
+      foreach ($produtos as $key => $produto) {
+         if($produto["codigo"] == $codigo){
+           $status_produto = 1;
+           if(isset($_GET["add"])){
+           $produtos[$key]["info"][0]["qtdd"]=strval(intval($produto["info"][0]["qtdd"])+$qtdd);
+            }
+          if(isset($_GET["rmv"])){
+            $produtos[$key]["info"][0]["qtdd"]=strval(intval($produto["info"][0]["qtdd"])-$qtdd);
+             }
+           //echo $character["info"][0]["qtdd"] ;
+           $produtos_new = json_encode($produtos,true); // decode the JSON feed
+           file_put_contents($filename,$produtos_new);
+         }
+       }
+    echo "<script>location = '../pag_compras.php';</script>";
 
-  foreach($compra_string as $key => $value) {
-    echo $key . " => " . $value . "<br>";
+    if($status_produto == 0){
+      $handle = @fopen($filename, 'r+');
+      if ($handle)
+      {
+          // seek to the end
+          fseek($handle, 0, SEEK_END);
+          // are we at the end of is the file empty
+          if (ftell($handle) > 0)
+          {
+              // move back a byte
+              fseek($handle, -1, SEEK_END);
+              // add the trailing comma
+              fwrite($handle, ',', 1);
+              // add the new json string
+              fwrite($handle, json_encode($compra). ']');
+          }
+          else
+          {
+              // write the first event inside an array
+              fwrite($handle, json_encode($compra));
+          }
+              // close the handle on the file
+              fclose($handle);
+              echo "<script>location = '../pag_compras.php';</script>";
+
+      }
+    }
+    }
+    }
+
+  else {
+    $fp = fopen($filename,"w");
+    fwrite($fp,"[]");
+    fclose($fp);
+    echo "<script>location = '../pag_compras.php';</script>";
   }
-/*
-  $fp = fopen("compras.json","a");
-  $compra_json = json_encode($compra);
-  $escreve = fwrite($fp,$compra_json);
-  fclose($fp);
-*/
-  //echo "<script>location = '../pag_compras.php';</script>";
+}
+
  ?>
