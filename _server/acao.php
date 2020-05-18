@@ -1,10 +1,10 @@
 <?php
   $codigo = $_GET["codigo"];
-  if($codigo == "..."){
+  $produto = $_GET["produto"];
+  if($produto == "..." ){
       echo "<script>history.back();</script>";
   }
   else{
-  $produto = $_GET["produto"];
   $valor = $_GET["valor"];
   $qtdd = 1;
   $status_produto = 0;
@@ -46,6 +46,7 @@
               // close the handle on the file
               fclose($handle);
       }
+      echo "<script>location = '../pag_compras.php';</script>";
     }
     else {
       $data = file_get_contents($filename); // put the contents of the file into a variable

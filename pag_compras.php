@@ -102,6 +102,23 @@
             <?php }
         }
       }?>
+      <?php
+      if (file_exists("_server/compras.json")){
+
+          $count = substr_count(file_get_contents("_server/compras.json"), "a");
+          //echo $count;
+          if ($count == 0){
+
+            $valor_total = 0;
+          }
+        }
+      else{
+        $fp = fopen("_server/compras.json","w");
+        fwrite($fp,"[]");
+        fclose($fp);
+        $valor_total = 0;
+      }
+            ?>
       <tr>
         <td colspan="4">___________________________________________________________________________________________</td>
       </tr>
@@ -110,6 +127,7 @@
           <td colspan="3"><input type="text" value=<?=$valor_total?>,00 name="codigo" class="info_compra" readonly></td>
         </tr>
         </table>
+
 
 
         <!--
