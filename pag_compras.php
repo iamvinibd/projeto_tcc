@@ -8,8 +8,15 @@
   </head>
   <body>
     <?php
-       $codigo=$Nome=$valor="...";
-       $Produto = "O seu produto aparecera aqui =)";
+      session_start();
+      $CPF = $_SESSION["UserCPF"];
+      $now = getdate();
+      $mday = $now['mday'] - ($now['wday'] + 6) % 7;
+      $monday = mktime(0, 0, 0, $now['mon'], $mday, $now['year']);
+      $date = date('d_m_y', $monday).".json";
+      $filename = "./_notas/$_SESSION[UserCPF]/JSON/$date";
+      $codigo=$Nome=$valor="...";
+      $Produto = "O seu produto aparecera aqui =)";
       if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if ($_POST["search"]!=""){
           $codigo = $_POST["search"];
@@ -82,12 +89,11 @@
           <td><input type="text" value="Valor (R$)" name="codigo" class="info_compra" readonly></td>
         </tr>
       <?php
-        if (file_exists("_server/compras.json")){
-          //echo "foiiii";
-          $count = substr_count(file_get_contents("_server/compras.json"), "a");
+        if (file_exists($filename)){
+          $count = substr_count(file_get_contents($filename), "a");
           //echo $count;
           if ($count > 0){
-            $data = file_get_contents("_server/compras.json"); // put the contents of the file into a variable
+            $data = file_get_contents($filename); // put the contents of the file into a variable
             $characters = json_decode($data,true);
             $valor_total = 0;
             foreach ($characters as $character) {
@@ -103,9 +109,9 @@
         }
       }?>
       <?php
-      if (file_exists("_server/compras.json")){
+      if (file_exists($filename)){
 
-          $count = substr_count(file_get_contents("_server/compras.json"), "a");
+          $count = substr_count(file_get_contents($filename), "a");
           //echo $count;
           if ($count == 0){
 
@@ -113,7 +119,7 @@
           }
         }
       else{
-        $fp = fopen("_server/compras.json","w");
+        $fp = fopen($filename,"w");
         fwrite($fp,"[]");
         fclose($fp);
         $valor_total = 0;
@@ -126,22 +132,11 @@
           <td><input type="text" value="Preço Final" name="codigo" class="info_compra" readonly></td>
           <td colspan="3"><input type="text" value=<?=$valor_total?>,00 name="codigo" class="info_compra" readonly></td>
         </tr>
+        <tr>
+          <td colspan="4">
+            <a href="_server/end_buying.php"><button type="button" name="fnl" class="btn_acao"><i class="fa fa-shopping-bag"></i></button></a></td>
+        </tr>
         </table>
-
-
-
-        <!--
-          /*$count = substr_count(file_get_contents(._server/"compras.json"), "a");
-          //echo $count;
-          if ($count == 0){
-        }
-        $data = file_get_contents($filename); // put the contents of the file into a variable
-        $characters = json_decode($data,true);
-
-        foreach ($characters as $character) {?>
-      	   echo $character["codigo"] . '<br>';
-           echo $character["info"][0]["valor"] . '<br>';
-           echo $character["info"][0]["qtdd"] . '<br>';-->
 
 
     </div>

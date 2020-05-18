@@ -38,6 +38,8 @@ else{
       $Senha = $_POST["UserSenha"];
       $Email = $_POST["UserEmail"];
       mkdir("../_notas/$CPF/");
+      mkdir("../_notas/$CPF/JSON");
+      mkdir("../_notas/$CPF/PDF");
       mysqli_query($conectUserDB,"INSERT INTO `usersinfos` (`CPF`, `senha`, `nome`, `email`) VALUES ('$CPF','$Nome','$Senha','$Email');");
       echo "<script>alert('Usuário cadastrado com sucesso');location = '../home.php';</script>";
   }

@@ -24,7 +24,7 @@ session_start();
       <!-- Cria se uma lista, dentro dessa lista teremos todos os arquivos dentro da pastas_notas/CPF do usuário-->
       <ul id = "list_Notas">
       <?php
-        $path = "./_notas/$_SESSION[UserCPF]/";
+        $path = "./_notas/$_SESSION[UserCPF]/PDF/";
         $Directory = new DirectoryIterator($path);
         foreach ($Directory as $FileInfo) {
           if($FileInfo -> isDot())continue;

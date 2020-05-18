@@ -1,4 +1,11 @@
 <?php
+  session_start();
+  $CPF = $_SESSION["UserCPF"];
+  $now = getdate();
+  $mday = $now['mday'] - ($now['wday'] + 6) % 7;
+  $monday = mktime(0, 0, 0, $now['mon'], $mday, $now['year']);
+  $date = date('d_m_y', $monday).".json";
+  $filename = "../_notas/$_SESSION[UserCPF]/JSON/$date";
   $codigo = $_GET["codigo"];
   $produto = $_GET["produto"];
   if($produto == "..." ){
@@ -18,7 +25,7 @@
   )]
   );
 
-  $filename = "compras.json";
+  //$filename = "compras.json";
   if (file_exists($filename)) {
     $count = substr_count(file_get_contents($filename), "a");
     //echo $count;
@@ -98,6 +105,7 @@
     }
 
   else {
+
     $fp = fopen($filename,"w");
     fwrite($fp,"[]");
     fclose($fp);

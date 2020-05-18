@@ -52,6 +52,16 @@ button[name="rmv"]:hover{
 	background-color: pink;
 	cursor: pointer;
 }
+
+button[name="fnl"] {
+	background-color: blue;
+	font-size: 50px;
+	font-size: bold;
+}
+button[name="fnl"]:hover{
+	background-color: lightblue;
+	cursor: pointer;
+}
 .display_compras{
 	overflow-y: auto;
 	position: absolute;
