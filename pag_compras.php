@@ -13,7 +13,8 @@
       $currentDateTime = date('d-m-Y');
       $date = $currentDateTime.".json";
       $filename = "./_notas/$_SESSION[UserCPF]/JSON/$date";
-      $codigo=$Nome=$valor="...";
+      $codigo=$valor="...";
+      $Nome = "-";
       $Produto = "O seu produto aparecera aqui =)";
       if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if ($_POST["search"]!=""){
@@ -49,7 +50,7 @@
       </form>
     </div>
     <div class="display_produto">
-      <strong><?=$Produto?></strong>
+      <img src="_imgProduto/<?=$Nome?>.jpg">
     </div>
     <div class="display_info">
       <form class="form_info" action="_server/acao.php" method="get">

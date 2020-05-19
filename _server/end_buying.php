@@ -78,7 +78,9 @@
   EOD;
     }
     $html .= <<<EOD
-
+        <tr>
+          <td></td>
+        </tr>
         <tr>
           <td>Total</td>
           <td>$valor_total,00</td>
