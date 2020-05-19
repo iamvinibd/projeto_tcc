@@ -10,10 +10,8 @@
     <?php
       session_start();
       $CPF = $_SESSION["UserCPF"];
-      $now = getdate();
-      $mday = $now['mday'] - ($now['wday'] + 6) % 7;
-      $monday = mktime(0, 0, 0, $now['mon'], $mday, $now['year']);
-      $date = date('d_m_y', $monday).".json";
+      $currentDateTime = date('d-m-Y');
+      $date = $currentDateTime.".json";
       $filename = "./_notas/$_SESSION[UserCPF]/JSON/$date";
       $codigo=$Nome=$valor="...";
       $Produto = "O seu produto aparecera aqui =)";

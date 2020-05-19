@@ -1,16 +1,23 @@
 <?php
   session_start();
+  $currentDateTime = date('d-m-Y');
+  $date = $currentDateTime.".json";
+  $filename = "../_notas/$_SESSION[UserCPF]/JSON/$date";
+  if (file_exists($filename)){
+    $count = substr_count(file_get_contents($filename), "a");
+    if ($count == 0){
+      echo "<script>alert('Nenhuma compra inserida');history.back();</script>";
+    }
+    else {
+
+
   $CPF = $_SESSION["UserCPF"];
   $nome = $_SESSION["UserName"];
   $email = $_SESSION["UserEmail"];
-  $now = getdate();
 
-  $mday = $now['mday'] - ($now['wday'] + 6) % 7;
-  $monday = mktime(0, 0, 0, $now['mon'], $mday, $now['year']);
-  $date = date('d_m_y', $monday).".json";
 
-  $date2 = date('d_m_y', $monday);
-  $filename = "../_notas/$_SESSION[UserCPF]/JSON/$date";
+  $date2 = $currentDateTime;
+
   $path_to_save ="C:/xampp/htdocs/projeto_tcc/_notas/$CPF/PDF/Nota_Fiscal_$date2.pdf";
   //echo $path_to_save;
   require_once('../TCPDF/tcpdf.php');
@@ -83,5 +90,8 @@
   // Close and output PDF document
   // This method has several options, check the source code documentation for more information.
   $pdf->Output($path_to_save, 'F');
+    echo "<script>alert('Compra Finalizada, favor verifique a nota na página do usuário');location = '../user.php';</script>";
+}
+}
 
 ?>
