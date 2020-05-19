@@ -50,6 +50,7 @@
       </form>
     </div>
     <div class="display_produto">
+      <!--360x400-->
       <img src="_imgProduto/<?=$Nome?>.jpg">
     </div>
     <div class="display_info">
