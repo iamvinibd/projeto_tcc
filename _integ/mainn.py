@@ -11,8 +11,14 @@ import time,winsound
 
 def start():
     global driver
-    driver = webdriver.Chrome(executable_path=r'C:\xampp\htdocs\projeto_tcc\_integ\chromedriver.exe')
+    options = Options()
+    options.add_argument('start-fullscreen')
+    options.add_experimental_option("useAutomationExtension", False)
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    driver = webdriver.Chrome(chrome_options=options, executable_path=r'C:\xampp\htdocs\projeto_tcc\_integ\chromedriver.exe')
     driver.get("http://localhost/projeto_tcc/")
+    #driver.maximize_window()
+
     url = driver.command_executor._url
     session_id = driver.session_id
     return url,session_id
@@ -43,6 +49,6 @@ def buy(codigo,executor_url, session_id):
 
 
 ipcart = start()
-time.sleep(30)
-print("Testing time done")
-buy("5002539845",ipcart[0],ipcart[1])
+#time.sleep(30)
+#print("Testing time done")
+#buy("5002539845",ipcart[0],ipcart[1])
