@@ -1,8 +1,10 @@
 <?php
   session_start();
+  date_default_timezone_set("America/Sao_Paulo");
   $currentDateTime = date('d-m-Y');
   $date = $currentDateTime.".json";
   $filename = "../_notas/$_SESSION[UserCPF]/JSON/$date";
+
   if (file_exists($filename)){
     $count = substr_count(file_get_contents($filename), "a");
     if ($count == 0){
@@ -14,10 +16,8 @@
   $CPF = $_SESSION["UserCPF"];
   $nome = $_SESSION["UserName"];
   $email = $_SESSION["UserEmail"];
-
-
-  $date2 = $currentDateTime;
-
+  $date2 = date('d-m-Y H-i');
+  $new_filename = "../_notas/$_SESSION[UserCPF]/JSON/$date2";
   $path_to_save ="C:/xampp/htdocs/projeto_tcc/_notas/$CPF/PDF/Nota_Fiscal_$date2.pdf";
   //echo $path_to_save;
   require_once('../TCPDF/tcpdf.php');
@@ -78,9 +78,10 @@
   EOD;
     }
     $html .= <<<EOD
+
         <tr>
           <td>Total</td>
-          <td colspan = 3>$valor_produto,00</td>
+          <td>$valor_total,00</td>
           </tr>
       </table>
       EOD;
@@ -90,6 +91,7 @@
   // Close and output PDF document
   // This method has several options, check the source code documentation for more information.
   $pdf->Output($path_to_save, 'F');
+  rename($filename,$new_filename);
     echo "<script>alert('Compra Finalizada, favor verifique a nota na página do usuário');location = '../user.php';</script>";
 }
 }
