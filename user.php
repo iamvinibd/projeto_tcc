@@ -39,9 +39,9 @@ session_start();
     </div>
     <div class="c_ListaProdutos">
       <h2 id="t_Produtos">Produtos</h2>
-      <table width="100%" border="1" bordercolor="#EEE" cellpadding="10">
+      <table width = "100%"cellpadding="10">
       		<tr>
-      			<td><strong>Cód. Produto</strong></td>
+      			<td><strong>Imagem</strong></td>
       			<td><strong>Nome</strong></td>
       			<td><strong>Preço</strong></td>
       		</tr>
@@ -58,12 +58,39 @@ session_start();
                 $valor = $dados["valor"];
               }?>
       				<tr>
-      					<td><?=$dados["codigo"]?></d>
+                <!--45x50-->
+                <td><img src="_imgProdutoHome/<?=$dados["nome"]?>.jpg"></td>
       					<td><?=$dados["nome"]?></td>
       					<td>R$ <?=$valor?></td>
       				</tr>
 
       			<?php }?>
+      	</table>
+    </div>
+    <div class="c_ListaProdutos">
+      <h2 id="t_Produtos">Promoções</h2>
+      <table width = "100%"cellpadding="10">
+      		<tr>
+      			<td><strong>Imagem</strong></td>
+      			<td><strong>Nome</strong></td>
+      			<td><strong>Preço</strong></td>
+      		</tr>
+      		<?php
+      			require("_server/mercado-db-conect.php");
+      			$select = mysqli_query($conectMercadoDB,"select * from produtos order by id desc");
+
+      			while ($dados= mysqli_fetch_array($select)) {
+              if($dados["promo"]!=0){
+                $valor = $dados["promo"]*$dados["valor"];
+                ?>
+      				<tr>
+                <!--45x50-->
+                <td><img src="_imgProdutoHome/<?=$dados["nome"]?>.jpg"></td>
+      					<td><?=$dados["nome"]?></td>
+      					<td>R$ <?=$valor?></td>
+      				</tr>
+
+      			<?php }}?>
       	</table>
     </div>
     <div class="c_BotaoCompras">

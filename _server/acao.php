@@ -1,12 +1,13 @@
 <?php
   session_start();
   $CPF = $_SESSION["UserCPF"];
+  date_default_timezone_set("America/Sao_Paulo");
   $currentDateTime = date('d-m-Y');
   $date = $currentDateTime.".json";
   $filename = "../_notas/$_SESSION[UserCPF]/JSON/$date";
   $codigo = $_GET["codigo"];
   $produto = $_GET["produto"];
-  if($produto == "..." ){
+  if($produto == "-" ){
       echo "<script>history.back();</script>";
   }
   else{
@@ -25,6 +26,7 @@
 
   //$filename = "compras.json";
   if (file_exists($filename)) {
+    echo "to aqui";
     $count = substr_count(file_get_contents($filename), "a");
     //echo $count;
     if ($count == 0){

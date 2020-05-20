@@ -6,6 +6,7 @@
   $filename = "../_notas/$_SESSION[UserCPF]/JSON/$date";
 
   if (file_exists($filename)){
+
     $count = substr_count(file_get_contents($filename), "a");
     if ($count == 0){
       echo "<script>alert('Nenhuma compra inserida');history.back();</script>";
@@ -97,5 +98,6 @@
     echo "<script>alert('Compra Finalizada, favor verifique a nota na página do usuário');location = '../user.php';</script>";
 }
 }
+
 
 ?>

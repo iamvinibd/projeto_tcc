@@ -10,6 +10,7 @@
     <?php
       session_start();
       $CPF = $_SESSION["UserCPF"];
+      date_default_timezone_set("America/Sao_Paulo");
       $currentDateTime = date('d-m-Y');
       $date = $currentDateTime.".json";
       $filename = "./_notas/$_SESSION[UserCPF]/JSON/$date";
@@ -97,6 +98,7 @@
             $characters = json_decode($data,true);
             $valor_total = 0;
             foreach ($characters as $character) {
+              if($character["info"][0]["qtdd"] !=0){
               $valor_total = strval($valor_total + intval($character["info"][0]["qtdd"])*intval($character["info"][0]["valor"]));
               ?>
               <tr>
@@ -105,7 +107,7 @@
                 <td><?=$character["info"][0]["qtdd"]?></td>
                 <td><?=strval(intval($character["info"][0]["qtdd"])*intval($character["info"][0]["valor"]))?>,00</td>
               </tr>
-            <?php }
+            <?php }}
         }
       }?>
       <?php
