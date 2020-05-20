@@ -1,4 +1,5 @@
 <?php
+  echo "<script>if(confirm('Deseja mesmo finalizar a compra ?')){pass;}else {history.back();}</script>";
   session_start();
   date_default_timezone_set("America/Sao_Paulo");
   $currentDateTime = date('d-m-Y');
@@ -58,6 +59,7 @@
     //echo "<br>";
     //echo $count;
     if ($count > 0){
+      require("mercado-db-conect.php");
       //echo "TO WeakMap";
       $data = file_get_contents($filename); // put the contents of the file into a variable
       $characters = json_decode($data,true);
@@ -68,6 +70,13 @@
         $codigo = $character["codigo"];
         $produto = $character["info"][0]["produto"];
         $qtdd = $character["info"][0]["qtdd"];
+
+        $select = mysqli_query($conectMercadoDB,"select * from produtos where codigo=$codigo");
+        $dados= mysqli_fetch_array($select);
+        $estoque = $dados["estoque"];
+        $estoque_new = intval($dados["estoque"])-intval($qtdd);
+        $update = mysqli_query($conectMercadoDB,"UPDATE `produtos` SET `estoque` = '$estoque_new' WHERE `codigo` = '$codigo'");
+
         $html .= <<<EOD
           <tr>
             <td>$codigo</td>
@@ -97,6 +106,7 @@
   rename($filename,$new_filename);
     echo "<script>alert('Compra Finalizada, favor verifique a nota na página do usuário');location = '../user.php';</script>";
 }
+
 }
 
 
