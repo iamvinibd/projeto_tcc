@@ -37,12 +37,20 @@ else{
       $CPF = $_POST["UserCPF"];
       $Senha = $_POST["UserSenha"];
       $Email = $_POST["UserEmail"];
+      $filename = "../_notas/$CPF/";
+      if (file_exists($filename) and $RowMatched ==0){
+      mysqli_query($conectUserDB,"INSERT INTO `usersinfos` (`CPF`, `senha`, `nome`, `email`) VALUES ('$CPF','$Senha','$Nome','$Email');");
+      echo "<script>alert('Usuário cadastrado com sucesso');location = '../home.php';</script>";
+      }
+      else {
+
       mkdir("../_notas/$CPF/");
       mkdir("../_notas/$CPF/JSON");
       mkdir("../_notas/$CPF/PDF");
-      mysqli_query($conectUserDB,"INSERT INTO `usersinfos` (`CPF`, `senha`, `nome`, `email`) VALUES ('$CPF','$Nome','$Senha','$Email');");
+      mysqli_query($conectUserDB,"INSERT INTO `usersinfos` (`CPF`, `senha`, `nome`, `email`) VALUES ('$CPF','$Senha','$Nome','$Email');");
       echo "<script>alert('Usuário cadastrado com sucesso');location = '../home.php';</script>";
   }
+}
 
 }
 

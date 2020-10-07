@@ -24,7 +24,7 @@ margin-top: 10px;
 }
 .display_info{
 	margin-top: 10px;
-	
+
 	width: 30%;
 }
 #table_info{
@@ -115,5 +115,14 @@ input[class="info_compra"] {
 
 #table_compras{
 	width: 100%;
+	text-align: center;
+}
+
+#table_fim{
+	position: fixed;
+	left: 40%;
+	bottom: 30px;
+	border-top: 1px solid black;
+	width: 60%;
 	text-align: center;
 }

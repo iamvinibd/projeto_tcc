@@ -36,7 +36,7 @@
               $valor = $dados["valor"];# Se não mantem valor original
             }
           }
-          
+
           }
           else {
             $Produto = "Produto não encontrado "; # se o select não der match informa que o produto não foi encontrado
@@ -132,19 +132,19 @@
         $valor_total = 0;
       }
             ?>
-      <tr>
-        <td colspan="4">___________________________________________________________________________________________</td>
-      </tr>
-        <tr>
-          <td><input type="text" value="Preço Final" name="codigo" class="info_compra" readonly></td>
-          <td colspan="3"><input type="text" value=<?=$valor_total?>,00 name="codigo" class="info_compra" readonly></td>
-        </tr>
-        <tr>
-          <td colspan="4">
-            <a href="_server/confirm_end.php"><button type="button" name="fnl" class="btn_acao"><i class="fa fa-shopping-bag"></i></button></a></td>
-        </tr>
-        </table>
 
+
+        </table>
+        <table id="table_fim">
+          <tr>
+            <td><input type="text" value="Preço Final" name="codigo" class="info_compra" readonly></td>
+            <td colspan="3"><input type="text" value=<?=$valor_total?>,00 name="codigo" class="info_compra" readonly></td>
+          </tr>
+          <tr>
+            <td colspan="4">
+              <a href="_server/confirm_end.php"><button type="button" name="fnl" class="btn_acao"><i class="fa fa-shopping-bag"></i></button></a></td>
+          </tr>
+        </table>
 
     </div>
   </body>
