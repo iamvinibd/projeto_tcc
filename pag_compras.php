@@ -25,6 +25,9 @@
           if($select){ # Caso tenha algum match
             $dados= mysqli_fetch_array($select); # Pega um array dos dados da tabela
             $RowMatched = mysqli_num_rows($select);# Verifica a aquantidade de vezes que houve match do codigo na tabela
+            if ($RowMatched>0) {
+
+
             $Nome = $dados["nome"];# Passa o nome do produto na tabela p variavel nome
             if($dados["promo"]!=0){ # Se dentro da tabela, a info "promo" for diferente de zero
               $valor = $dados["promo"]*$dados["valor"]; # Multiplica o valor do produto pela % de promoção
@@ -33,10 +36,13 @@
               $valor = $dados["valor"];# Se não mantem valor original
             }
           }
+          
+          }
           else {
             $Produto = "Produto não encontrado "; # se o select não der match informa que o produto não foi encontrado
           }
         }
+
       }
      ?>
     <div class="c_Busca">
