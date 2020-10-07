@@ -1,5 +1,5 @@
 <?php
-  echo "<script>if(confirm('Deseja mesmo finalizar a compra ?')){pass;}else {history.back();}</script>";
+
   session_start();
   date_default_timezone_set("America/Sao_Paulo");
   $currentDateTime = date('d-m-Y');

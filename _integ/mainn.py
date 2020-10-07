@@ -48,7 +48,7 @@ def buy(codigo,executor_url, session_id):
     return driver
 
 
-"""ipcart = start()
+ipcart = start()
 time.sleep(30)
 print("Testing time done")
-buy("0",ipcart[0],ipcart[1])"""
+buy("0",ipcart[0],ipcart[1])

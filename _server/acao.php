@@ -26,7 +26,7 @@
 
   //$filename = "compras.json";
   if (file_exists($filename)) {
-    echo "to aqui";
+    //echo "to aqui";
     $count = substr_count(file_get_contents($filename), "a");
     //echo $count;
     if ($count == 0){
@@ -67,6 +67,10 @@
           if(isset($_GET["rmv"])){
             $produtos[$key]["info"][0]["qtdd"]=strval(intval($produto["info"][0]["qtdd"])-$qtdd);
              }
+          if($produtos[$key]["info"][0]["qtdd"] < 0){
+            $produtos[$key]["info"][0]["qtdd"] = 0;
+            echo "<script>alert('O produto não estava em sua lista de compras');location = '../pag_compras.php';</script>";
+          }
            //echo $character["info"][0]["qtdd"] ;
            $produtos_new = json_encode($produtos,true); // decode the JSON feed
            file_put_contents($filename,$produtos_new);

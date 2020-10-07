@@ -1,21 +1,36 @@
 .c_Busca{
 	margin-top: 20px;
+	width: 30%;
+
 }
+.c_buscar{
+	width: 350px;
+	height:30px;
+	text-align: center;
+	font-size: 30px;
+	border-radius: 15px;
+}
+.c_buscar:hover{
+	background-color: #dddddd;
+	border-color: blue;
+}
+
 .display_produto{
 width: 30%;
 height: 400px;
 text-align: center;
-border: 1px solid black;
+border: 2px solid black;
 margin-top: 10px;
 }
 .display_info{
 	margin-top: 10px;
+	
 	width: 30%;
 }
 #table_info{
 	width: 100%;
 	text-align: center;
-	border: 1px solid black;
+	border: 2px solid black;
 }
 .action_button{
 	width: 30%;
@@ -30,6 +45,17 @@ margin-top: 10px;
 	width: 49%;
 	border: 1px solid black;
 	margin-top: 1px;
+}
+
+button[name="busca"] {
+	background-color: yellow;
+	font-size: 30px;
+	color: black;
+	font-size: bold;
+}
+button[name="busca"]:hover{
+	background-color: lightyellow;
+	cursor: pointer;
 }
 
 button[name="add"] {

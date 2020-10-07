@@ -13,7 +13,7 @@ session_start();
     <div class="cabecalho">
       <!-- Com as informações compartilhadas pela sessão vindas do script login.ph, preencho o cabecalho
       com informações do usuário-->
-      <h1>Bem Vindo!!!</h1>
+      <h1>Bem Vindo</h1>
       <h2><?=$_SESSION["UserName"]?></h2>
       <h5><?=$_SESSION["UserCPF"]?></h2>
       <h5><?=$_SESSION["UserEmail"]?></h2>
@@ -67,6 +67,7 @@ session_start();
       			<?php }?>
       	</table>
     </div>
+    <!-- Crio box da lista de produtos em promoção-->
     <div class="c_ListaProdutos">
       <h2 id="t_Produtos">Promoções</h2>
       <table width = "100%"cellpadding="10">
