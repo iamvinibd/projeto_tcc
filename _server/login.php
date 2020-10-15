@@ -24,6 +24,9 @@ if($RowMatched == 1){
     $_SESSION["UserCPF"] = $Userdata["CPF"];
     $_SESSION["UserName"] = $Userdata["nome"];
     $_SESSION["UserEmail"] = $Userdata["email"];
+    if ($_SESSION["UserCPF"] == "admin") {
+      echo "<script>location = '../pag_admin.php';</script>";
+    }
     //Exibe pop up c mensagem de boas vindas e leva o usuário para sua page
     echo "<script>alert('Bem Vindo $Userdata[nome]');location = '../user.php';</script>";
   }
