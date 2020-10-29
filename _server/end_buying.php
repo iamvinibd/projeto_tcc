@@ -104,7 +104,7 @@
   // This method has several options, check the source code documentation for more information.
   $pdf->Output($path_to_save, 'F');
   rename($filename,$new_filename);
-    echo "<script>alert('Compra Finalizada, favor verifique a nota na página do usuário');location = '../user.php';</script>";
+    echo "<script>alert('Compra Finalizada, favor verifique a nota na página do usuário');location = '../home.php';</script>";
 }
 
 }

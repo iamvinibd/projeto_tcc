@@ -81,7 +81,7 @@ session_start();
       			$select = mysqli_query($conectMercadoDB,"select * from produtos order by id desc");
 
       			while ($dados= mysqli_fetch_array($select)) {
-              if($dados["promo"]!=0){
+              if($dados["promo"]!=1){
                 $valor = $dados["promo"]*$dados["valor"];
                 ?>
       				<tr>
