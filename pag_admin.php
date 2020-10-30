@@ -19,7 +19,9 @@ session_start() // inicio a sessão dentro desse script para poder trabalhar com
       <div class="container">
         <h4><b><?=$_SESSION["UserName"]?></b></h4>
         <p><?=$_SESSION["UserCPF"]?></p>
+        <h4><a href="_server/logout.php?">Deslogar</a></h4>
       </div>
+
     </div>
     <!--divisão referente as tabelas-->
     <div class="tab">
@@ -42,6 +44,7 @@ session_start() // inicio a sessão dentro desse script para poder trabalhar com
             <td><strong>E-mail</strong></td>
             <td><strong>Detalhes</strong></td>
           </tr>
+
           <?php
           //para que eu consiga mostrar os usuários ja nesta pagina dentro dessa tabela
             require("_server/users-db-conect.php");// conecto no banco de dados desejado

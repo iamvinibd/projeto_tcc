@@ -45,8 +45,8 @@
       $characters = json_decode($data,true);
       $valor_total = 0;
       foreach ($characters as $character) {
-        $valor_total = strval($valor_total + intval($character["info"][0]["qtdd"])*intval($character["info"][0]["valor"]));
-        $valor_produto = strval(intval($character["info"][0]["qtdd"])*intval($character["info"][0]["valor"]));
+        $valor_total = strval($valor_total + intval($character["info"][0]["qtdd"])*floatval($character["info"][0]["valor"]));
+        $valor_produto = strval(intval($character["info"][0]["qtdd"])*floatval($character["info"][0]["valor"]));
         $codigo = $character["codigo"];
         $produto = $character["info"][0]["produto"];
         $qtdd = $character["info"][0]["qtdd"];
@@ -61,7 +61,7 @@
             <td>$codigo</td>
             <td>$produto</td>
             <td>$qtdd</td>
-            <td>$valor_produto,00</td>
+            <td>$valor_produto</td>
           </tr>
   EOD;
     }
@@ -71,7 +71,7 @@
         </tr>
         <tr>
           <td>Total</td>
-          <td>$valor_total,00</td>
+          <td>$valor_total</td>
           </tr>
       </table>
       EOD;
