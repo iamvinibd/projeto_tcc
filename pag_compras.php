@@ -133,6 +133,12 @@
           <tr>
             <td colspan="4">
               <a href="_server/confirm_end.php"><button type="button" name="fnl" class="btn_acao"><i class="fa fa-shopping-bag"></i></button></a></td>
+
+          </tr>
+          <tr>
+            <td colspan="4">
+              <h2><a href="_server/logout_compras.php">Cancelar Compras</a></h2></td>
+
           </tr>
         </table>
 

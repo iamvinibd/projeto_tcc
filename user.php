@@ -17,6 +17,7 @@ session_start();
       <h2><?=$_SESSION["UserName"]?></h2>
       <h5><?=$_SESSION["UserCPF"]?></h2>
       <h5><?=$_SESSION["UserEmail"]?></h2>
+      <h2><a href="_server/logout.php?">Deslogar</a></h2>
     </div>
     <!--Crio box para as notas fiscais-->
     <div class="c_Notas">
