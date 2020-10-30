@@ -96,13 +96,14 @@
             foreach ($characters as $character) {// para cada item nesse JSON
               if($character["info"][0]["qtdd"] > 0){ // se tiver qtdd diferente de 0
                 $valor_total = strval($valor_total + floatval($character["info"][0]["qtdd"])*floatval($character["info"][0]["valor"])); //Multiplica valor unitário pela qtdd
+                $valor_interm = strval(floatval($character["info"][0]["qtdd"])*floatval($character["info"][0]["valor"]));
               ?>
               <!--insere as informações na tabela-->
               <tr>
                 <td><?=$character["codigo"]?></td>
                 <td><?=$character["info"][0]["produto"]?></td>
                 <td><?=$character["info"][0]["qtdd"]?></td>
-                <td><?=strval(floatval($character["info"][0]["qtdd"])*floatval($character["info"][0]["valor"]))?></td>
+                <td><?=$valor_interm?></td>
               </tr>
             <?php }}
         }
@@ -126,6 +127,7 @@
         <table id="table_fim">
           <tr>
             <td><input type="text" value="Preço Final" name="codigo" class="info_compra" readonly></td>
+            <td><input type="text" value="R$" name="codigo" class="info_compra" readonly></td>
             <td colspan="3"><input type="text" value=<?=$valor_total?> name="codigo" class="info_compra" readonly></td>
           </tr>
           <tr>
