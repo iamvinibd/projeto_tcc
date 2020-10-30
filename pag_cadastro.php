@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="_css/style_home_cadastro.css">
+    <link rel="stylesheet" href="_css/style_cadastro.css">
     <title>Cadastro</title>
   </head>
   <body>
@@ -32,6 +32,9 @@
             Cadastro: Leva para a página de cadastro do usuário mencionada no href-->
             <tr>
               <td colspan="2"><input type="submit" value="Cadastrar" class="btn"></td>
+            </tr>
+            <tr>
+              <td colspan="2"><a href="home.php"><input type="button" value="Voltar" class="btn"></a></td>
             </tr>
           </table>
         </form>
