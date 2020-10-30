@@ -2,14 +2,15 @@
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="_css/style_home_cadastro.css">
+    <!--dou nome a pagina e chamo o estilo que ela irá utilizar-->
+    <link rel="stylesheet" href="_css/style_addprod.css">
     <title>Novo produto</title>
   </head>
   <body>
     <div class="c_Cadastro">
-      <!-- Criação do formulario para login-->
+      <!-- Criação do formulario para adição do produto-->
         <form method="post" action="_server/adiciona.php" id="CadastroForm" enctype="multipart/form-data">
-          <!--Criação da tabela p posicionar os itens do login-->
+          <!--Criação da tabela p posicionar os itens do cadastro-->
           <table id="CadastroTable" >
             <tr>
               <td>Codigo</td>
@@ -33,21 +34,19 @@
             </tr>
             <tr>
               <td>Imagem</td>
-              <td><!-- MAX_FILE_SIZE deve preceder o campo input -->
+              <td>
+                <!-- MAX_FILE_SIZE deve preceder o campo input -->
                 <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
-                <!-- O Nome do elemento input determina o nome da array $_FILES -->
-                <input name="userfile" type="file" class="TextInput" />
+                <!-- O Nome do elemento input determina o nome da array $_FILES dentro do adiciona.php-->
+                <input name="userfile" type="file" class="FileInput" />
               </td>
             </tr>
-            <!--Criação dos botões Login/PageCadastro
-            login: submit informações do formulario para a action mencionada no formulário
-            Cadastro: Leva para a página de cadastro do usuário mencionada no href-->
+            <!--Criação do botão tipo submit que ira levar os dados inseridos a pagina de destino do formulario-->
             <tr>
               <td colspan="2"><input type="submit" value="Adicionar" class="btn"></td>
             </tr>
           </table>
         </form>
       </div>
-
   </body>
 </html>

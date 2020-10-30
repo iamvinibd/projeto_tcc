@@ -1,0 +1,59 @@
+/*------------------Slides----------------*/
+/* Imagens 800x290*/
+.c_Slides{
+	width: 100%;
+	height: 300px;
+	background-color: #ddd;
+	border-bottom: 5px solid black;
+}
+.SlideShow{
+	text-align: center;
+	display: none;
+}
+.SlideImage{
+	border-radius: 20px;
+	margin-top: 5px;
+}
+.Fade{
+	animation-name: fade;
+	animation-duration: 2s;
+}
+@keyframes fade{
+	from{opacity: .4}
+	to{opacity: 1}
+}
+/*------------------Pagina inicial----------*/
+body{
+	margin: 0;
+	padding: 0;
+	outline: none;
+	font-family: "Arial";
+}
+.c_Login{
+	height: 300px;
+}
+#LoginTable{
+	font-size: 35px;
+	font-weight: bold;
+	margin-left: 40%;
+	margin-top: 1%;
+}
+.TextInput{
+	font-size: 25px;
+	height: 40px;
+	width: 200px;
+	border-radius: 15px;
+}
+.TextInput:hover{
+	background-color: #dddddd;
+}
+.btn{
+	font-size: 20px;
+	width: 320px;
+	border-radius: 10px;
+	height: 50px;
+}
+.btn:hover{
+	cursor: pointer;
+	background-color: #ddd;
+}

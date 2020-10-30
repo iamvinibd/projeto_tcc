@@ -1,0 +1,34 @@
+body{
+	margin: 0;
+	padding: 0;
+	outline: none;
+	font-family: "Arial";
+}
+.c_Cadastro{
+	height: 300px;
+}
+#CadastroTable{
+	font-size: 35px;
+	font-weight: bold;
+	margin-left: 40%;
+	margin-top: 1%;
+}
+.TextInput{
+	font-size: 25px;
+	height: 40px;
+	width: 200px;
+	border-radius: 15px;
+}
+.TextInput:hover{
+	background-color: #dddddd;
+}
+.btn{
+	font-size: 20px;
+	width: 320px;
+	border-radius: 10px;
+	height: 50px;
+}
+.btn:hover{
+	cursor: pointer;
+	background-color: #ddd;
+}

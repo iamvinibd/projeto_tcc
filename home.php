@@ -2,23 +2,27 @@
 <html lang=pt-br>
   <head>
     <meta charset="utf-8">
+    <!--Inserindo o titulo da página-->
     <title>Página Inicial - Login</title>
-    <link rel="stylesheet" href="_css/slide_style.css">
-    <link rel="stylesheet" href="_css/style_home_cadastro.css">
+    <!--Chamando as páginas que definirão os estilos de cada campo-->
+    <link rel="stylesheet" href="_css/style_home.css">
   </head>
   <body>
     <!-- Criação do box dos slides automaticos-->
     <div class="c_Slides">
       <div class="SlideShow Fade">
-        <!--Adicionando cada imagem dos slides-->
+        <!--Adicionando imagem 001 dos slides-->
   			<img src="_img/_slides/001.jpg" class="SlideImage">
   		</div>
+      <!--Adicionando imagem 001 dos slides-->
   		<div class="SlideShow Fade">
   			<img src="_img/_slides/002.jpg" class="SlideImage">
   		</div>
+      <!--Adicionando imagem 001 dos slides-->
   		<div class="SlideShow Fade">
   			<img src="_img/_slides/003.jpg" class="SlideImage">
   		</div>
+      <!--Adicionando imagem 001 dos slides-->
   		<div class="SlideShow Fade">
   			<img src="_img/_slides/004.jpg" class="SlideImage">
   		</div>

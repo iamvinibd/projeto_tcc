@@ -50,13 +50,11 @@
 	color: white;
   border-radius: 8px;
 }
-
 .btn_Compras:hover{
 	background-color: lightgray;
 	color: black;
 	cursor: pointer;
 }
-
 .page_user{
 	background-color: gray;
 }

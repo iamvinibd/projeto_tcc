@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <!--criação do cabeçalho e chamando o estilo utilizado na página-->
     <meta charset="utf-8">
-    <link rel="stylesheet" href="_css/style_home_cadastro.css">
-    <title>Editar</title>
+    <link rel="stylesheet" href="_css/style_edita.css">
+    <title>Editar Produto</title>
   </head>
   <body>
-    <div class="c_Cadastro">
-      <!-- Criação do formulario para login-->
+    <div class="c_Inform">
+      <!-- Criação do formulario para edição-->
         <form method="post" action="_server/edita.php" id="CadastroForm">
-          <!--Criação da tabela p posicionar os itens do login-->
-          <table id="CadastroTable" >
+          <!--Criação da tabela p posicionar os itens da edição-->
+          <table id="EditaTable" >
             <?php
-            require("_server/mercado-db-conect.php");
-            # Busca CPF no banco de dados
-            $CheckDB = mysqli_query($conectMercadoDB,"SELECT * FROM `produtos` WHERE `codigo` LIKE '$_GET[codigo]'" );
-            $Userdata = mysqli_fetch_array($CheckDB);
-
+            require("_server/mercado-db-conect.php"); // conecta se ao banco de dados
+            $CheckDB = mysqli_query($conectMercadoDB,"SELECT * FROM `produtos` WHERE `codigo` LIKE '$_GET[codigo]'" );// busco no banco de dados pelo codigo passado para essa pagina
+            $Userdata = mysqli_fetch_array($CheckDB);// conforme oq der match irei pegar todas as informações do respectivo produto e guardar nesse array
             ?>
+            <!--criação dos campos onde o usuario insere os dados os campos ja estão preenchidos para facilitar a alteração de cada item-->
             <tr>
               <td ><input type="hidden" name="codigoorig" class="TextInput" value="<?=$_GET['codigo']?>"></td>
             </tr>
@@ -41,15 +41,12 @@
               <td>Estoque</td>
               <td><input type="text" name="estoque" class="TextInput" value="<?=$Userdata["estoque"]?>"></td>
             </tr>
-            <!--Criação dos botões Login/PageCadastro
-            login: submit informações do formulario para a action mencionada no formulário
-            Cadastro: Leva para a página de cadastro do usuário mencionada no href-->
+            <!--Criação do botão tipo submit que levara essas informações ao codigo de destino-->
             <tr>
               <td colspan="2"><input type="submit" value="Editar" class="btn"></td>
             </tr>
           </table>
         </form>
       </div>
-
   </body>
 </html>
