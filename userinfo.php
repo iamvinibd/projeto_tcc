@@ -15,6 +15,7 @@
         $Userdata = mysqli_fetch_array($CheckDB);// a partir do que for encontrado irei pegar todas as informações do banco de dados referente a esse CPF
         ?>
         <!--dentro de uma tabela organizo as informações-->
+        <h4><a href="pag_admin.php?">Voltar</a></h4>
           <tr>
             <td><strong>Nome:</strong></td>
             <td><?=$Userdata["nome"]?></td>
@@ -39,7 +40,7 @@
           $FileName = $FileInfo -> getFilename();// passo o nome do arquivo para uma variavel
           $FilePath = "$path$FileName";// concateno o caminho com o nome do arquivo
         ?>
-        <!--Coloco o arquivo na lista HTML no formato de um link para abrir em um nova página--> 
+        <!--Coloco o arquivo na lista HTML no formato de um link para abrir em um nova página-->
         <li><a target="_blank" href="<?=$FilePath?>" ><p><?=$FileName?></p></a></li>
       <?php  }?>
       </ul>

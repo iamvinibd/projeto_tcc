@@ -45,6 +45,10 @@
         </table>
       </form>
     </div>
+    <div style="width: 30%; text-align:center ;margin:0;">
+      <p id="statusValor" style="margin:0;">Aguardando Produto...</p>
+      <progress id="status" value = "100" max = "100" style="margin:0; width: 100%;color: red;"/>
+    </div>
     <!--crio a divisão onde sera mostrado o produto-->
     <div class="display_produto">
       <!--360x400-->
@@ -60,6 +64,7 @@
           <tr>
             <td>R$: </td>
             <td colspan="2"><input type="text" value=<?=$valor?> name="valor" class="info" readonly></td>
+          </tr>
           <tr>
             <td>Código</td>
             <td colspan="2"><input type="text" value=<?=$codigo?> name="codigo" class="info" readonly></td>
@@ -69,14 +74,24 @@
       <!--crio a divisão onde estarão os botões referentes a ação do usuario-->
       <div class="action_button">
         <table id="action_table">
+          <tr>
           <td>
             <button type="submit" name="add" class="btn_acao" float="left"><i class="fa fa-shopping-cart"></i></button>
             <button type="submit" name="rmv" class="btn_acao"><i class="fa fa-remove"></i></button>
           </td>
-        </tr>
+          </tr>
         </table>
       </form>
       </div>
+
+      <!--
+      <div id="container">
+         <video id="videoElement" playsinline autoplay></video>
+      </div>
+      <div>
+        <i class="fa fa-camera" id="status"></i>
+      </div>-->
+      <!------------------------------------------------->
       <!--crio a tabela contendo as informações da compra atual-->
     <div class="display_compras">
       <table id="table_compras">
@@ -142,6 +157,7 @@
           </tr>
         </table>
 
-    </div>
+    </div><!--
+    <script type="text/javascript" language="javascript" src="_java/webcam.js"></script>-->
   </body>
 </html>

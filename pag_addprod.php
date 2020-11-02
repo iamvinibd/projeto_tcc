@@ -45,6 +45,9 @@
             <tr>
               <td colspan="2"><input type="submit" value="Adicionar" class="btn"></td>
             </tr>
+            <tr>
+              <td colspan="2"><a href="pag_admin.php"><input type="button" value="Voltar" class="btn"></a></td>
+            </tr>
           </table>
         </form>
       </div>

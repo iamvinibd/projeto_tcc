@@ -15,5 +15,6 @@
     </div>
     <!--crio o botão q redireciona o codigo para o script q ira deletar o produto-->
     <a href="_server/deleta.php?codigo=<?=$_GET["codigo"]?>"><button type="button" class="btn" style="background-color: red;font-size: 100px;"><i class="fa fa-trash"></i></button></a>
+    <h4><a href="pag_admin.php?">Voltar</a></h4>
   </body>
 </html>

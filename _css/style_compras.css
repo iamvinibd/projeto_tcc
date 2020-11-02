@@ -1,5 +1,5 @@
 .c_Busca{
-	margin-top: 20px;
+	margin-top:-10px;
 	width: 30%;
 
 }
@@ -44,6 +44,7 @@ margin-top: 10px;
 	background-color:white;
 	width: 49%;
 	border: 1px solid black;
+	border-radius: 20px;
 	margin-top: 1px;
 }
 
@@ -60,7 +61,7 @@ button[name="busca"]:hover{
 
 button[name="add"] {
 	background-color: green;
-	font-size: 50px;
+	font-size: 40px;
 	color: white;
 	font-size: bold;
 }
@@ -71,7 +72,7 @@ button[name="add"]:hover{
 
 button[name="rmv"] {
 	background-color: red;
-	font-size: 50px;
+	font-size: 40px;
 	font-size: bold;
 }
 button[name="rmv"]:hover{
@@ -126,3 +127,24 @@ input[class="info_compra"] {
 	width: 60%;
 	text-align: center;
 }
+/*-------------camera---------------*/
+/*
+#container {
+	float: left;
+	margin: 0px auto;
+	width: 370px;
+	height: 275px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 370px;
+	height: 275px;
+	background-color: #666;
+}
+#status{
+	float: left;
+	margin-left: 15px;
+	font-size:100px;
+	color: black;
+}
+*/
